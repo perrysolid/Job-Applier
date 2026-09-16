@@ -12,3 +12,4 @@ __pycache__/
 profile/master.yaml
 profile/answers.yaml
 data/resumes/
+.githooks/pii-patterns

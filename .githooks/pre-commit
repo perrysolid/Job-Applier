@@ -1,0 +1,25 @@
+#!/bin/sh
+# Block any commit that would publish personal data. The repo is public.
+root=$(git rev-parse --show-toplevel)
+staged=$(git diff --cached --name-only)
+
+blocked=$(printf '%s\n' "$staged" | grep -E '^profile/(master|answers)\.yaml$|^data/resumes/|\.env$')
+if [ -n "$blocked" ]; then
+  echo "pre-commit: refusing to commit personal files:"
+  printf '  %s\n' $blocked
+  echo "These are gitignored for a reason - the repo is public."
+  exit 1
+fi
+
+# Catch personal data pasted into any other tracked file. Patterns live in
+# .githooks/pii-patterns, which is itself gitignored so this hook stays clean.
+pat="$root/.githooks/pii-patterns"
+if [ -f "$pat" ]; then
+  leak=$(git diff --cached -U0 | grep '^+' | grep -F -f "$pat")
+  if [ -n "$leak" ]; then
+    echo "pre-commit: personal data found in staged changes:"
+    echo "$leak" | head -5
+    exit 1
+  fi
+fi
+exit 0
