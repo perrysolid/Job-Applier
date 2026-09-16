@@ -1,0 +1,689 @@
+# Redacted template. Copy to master.yaml, fill in your own details, and keep it out of git.
+meta:
+  owner: <your owner>
+  last_updated: 2026-09-16
+  source_resume: RESUME_JULY (3).pdf
+  fact_lock: true
+personal:
+  full_name: <your full name>
+  first_name: <your first name>
+  last_name: <your last name>
+  email: <your email>
+  phone: <your phone>
+  phone_national: <your phone national>
+  linkedin: <your linkedin>
+  github: <your github>
+  github_secondary: <your github secondary>
+  nationality: Indian
+  work_authorization: Indian citizen — no sponsorship required for roles in India
+  requires_visa_sponsorship: false
+location:
+  current:
+    city: Patiala
+    state: Punjab
+    country: India
+    context: Term-time address (Thapar Institute)
+  permanent:
+    line1: <your line1>
+    city: Kanpur
+    state: Uttar Pradesh
+    country: India
+    pincode:
+      value: null
+      status: ASK
+  preferences:
+    willing_to_relocate: true
+    preferred_cities:
+    - Bengaluru
+    - Hyderabad
+    - Pune
+    - Gurugram
+    - Noida
+    - Delhi NCR
+    - Mumbai
+    - Chennai
+    - Remote
+    open_to_remote: true
+    open_to_hybrid: true
+    open_to_onsite: true
+eligibility:
+  candidate_type: fresher
+  graduation_month:
+    value: null
+    status: ASK
+  graduation_year: 2027
+  currently_studying: true
+  current_year_of_study: 4th year (from Jul 2026)
+  years_of_experience: 0
+  internship_months_completed: 8
+  notice_period_days: 0
+  available_from:
+    value: null
+    status: ASK
+  expected_stipend_monthly_inr:
+    value: null
+    status: ASK
+  expected_ctc_lpa:
+    value: null
+    status: ASK
+  current_ctc_lpa: 0
+education:
+- id: edu_thapar
+  institution: Thapar Institute of Engineering and Technology
+  location: Patiala, Punjab
+  degree: Bachelor of Engineering
+  field: Computer Engineering
+  start: 2023
+  end: 2027
+  cgpa: 9.0
+  cgpa_scale: 10
+  honors:
+  - MERIT SCHOLARSHIP-III (2023-2024)
+  on_resume: true
+- id: edu_xii
+  institution: BSS Education Center
+  location:
+    value: null
+    status: ASK
+  qualification: Class XII / Senior Secondary
+  board:
+    value: null
+    status: ASK
+  start: 2020
+  end: 2022
+  percentage:
+    value: null
+    status: ASK
+  on_resume: false
+- id: edu_x
+  institution: Methodist High School
+  location: Kanpur, Uttar Pradesh
+  qualification: Class X / Secondary (schooling 2008-2020)
+  board:
+    value: null
+    status: ASK
+  start: 2008
+  end: 2020
+  percentage:
+    value: null
+    status: ASK
+  on_resume: false
+education_gap:
+  period: 2022-2023
+  explanation:
+    value: null
+    status: ASK
+  note: 'One year between Class XII (2022) and B.E. start (2023). Application forms with strict year-by-year
+    education timelines will flag this. Supply a one-line explanation (e.g. JEE preparation / drop year)
+    so the answer bank can respond consistently instead of leaving it blank.
+
+    '
+experience:
+- id: exp_ds_intern
+  title: Data Science Intern
+  org: Centre of Excellence, Data Science and Artificial Intelligence
+  parent_org: Thapar Institute of Engineering and Technology
+  collaboration: University of Queensland
+  location: Patiala, Punjab
+  start: 2025-07
+  end: 2025-12
+  tags:
+  - data-science
+  - nlp
+  - llm
+  - rag
+  - healthcare
+  - research
+  bullets:
+  - id: b_ds_1
+    text: 'Framed structured questionnaires and collected interaction-level data from "Nasha Mukti Kendra"
+      stakeholders to understand user needs, awareness gaps, and common query patterns for a drug abuse
+      awareness chatbot.
+
+      '
+    tags:
+    - data-collection
+    - user-research
+    - nlp
+  - id: b_ds_2
+    text: 'Suggested a Corrective RAG (CRAG) pipeline to grade retrieved responses against curated health
+      resources before generation, aiming to improve factual grounding, safety, and reliability of chatbot
+      answers.
+
+      '
+    tags:
+    - rag
+    - llm
+    - evaluation
+    - nlp
+- id: exp_project_intern
+  title: Project Intern
+  org: Centre of Excellence, Data Science and Artificial Intelligence
+  parent_org: Thapar Institute of Engineering and Technology
+  collaboration: University of Queensland
+  location: Patiala, Punjab
+  start: 2026-06
+  end: 2026-07
+  tags:
+  - deep-learning
+  - computer-vision
+  - medical-imaging
+  - research
+  bullets:
+  - id: b_pi_1
+    text: 'Contributed to "AI-Driven Modeling and Optimization of Breast Cancer Detection", a joint Thapar
+      University and University of Queensland research project.
+
+      '
+    tags:
+    - research
+    - deep-learning
+    - medical-imaging
+  - id: b_pi_2
+    text: 'Explored mammography imaging and deep learning models for volumetric 3D mammography (slice-level
+      and full-volume analysis) for early breast cancer detection.
+
+      '
+    tags:
+    - computer-vision
+    - medical-imaging
+    - deep-learning
+    - 3d
+publications:
+- id: pub_new2an
+  title: Brain Tumor Classification using Hybrid CNN and MobileViT
+  venue: NEW2AN 2025
+  publisher: Springer's Lecture Notes in Computer Science
+  date_range: 2025-06 to 2025-11
+  role: Lead author
+  status: Accepted, to be published
+  tags:
+  - deep-learning
+  - computer-vision
+  - medical-imaging
+  - research
+  - publication
+  bullets:
+  - id: b_pub_1
+    text: 'Lead-authored a research paper accepted at NEW2AN 2025, to be published in Springer''s Lecture
+      Notes in Computer Science.
+
+      '
+    tags:
+    - research
+    - publication
+  - id: b_pub_2
+    text: 'Designed a hybrid DL architecture combining ResNet-18 and MobileViT achieving 99.1% accuracy
+      for brain tumor classification.
+
+      '
+    tags:
+    - deep-learning
+    - computer-vision
+    - cnn
+    - vision-transformer
+    - medical-imaging
+projects:
+- id: prj_goldeye
+  name: GoldEye — AI Gold-Loan Pre-Qualification
+  url: https://github.com/ultramech79-art/PoonaWala
+  date: 2026-06
+  tags:
+  - computer-vision
+  - ml
+  - fastapi
+  - docker
+  - fintech
+  - backend
+  - deployment
+  bullets:
+  - id: b_ge_1
+    text: 'Built a machine learning app that estimates a gold jewelry piece''s purity, weight, and loan
+      value from a few phone photos and a short tap-sound test, combining 12 checks (hallmark detection,
+      color and shine analysis, weight estimation, and a real-vs-plated classifier) into a single model
+      that returns a reliable estimate with a confidence range.
+
+      '
+    tags:
+    - computer-vision
+    - ml
+    - audio
+    - classification
+  - id: b_ge_2
+    text: 'Developed and deployed the backend using FastAPI, containerized using Docker, adding explanations
+      for every result, an automatic decision step (instant approve, send to agent, retake, or reject),
+      and live gold-rate pricing.
+
+      '
+    tags:
+    - backend
+    - fastapi
+    - docker
+    - deployment
+    - explainability
+- id: prj_saarthi
+  name: E-Commerce Chatbot (Saarthi)
+  url: https://github.com/perrysolid/E_Commerce_Chatbot
+  date_range: 2025-03 to 2026-05
+  tags:
+  - rag
+  - llm
+  - nlp
+  - sql
+  - data-engineering
+  - airflow
+  - testing
+  bullets:
+  - id: b_sa_1
+    text: 'Engineered Saarthi, a grounded RAG + Text-to-SQL assistant using Python, ChromaDB, and sentence-transformers,
+      with cross-encoder reranking, CRAG gating, and self-correcting SQL to achieve an 87.5% faithfulness
+      rate and 100% routing accuracy.
+
+      '
+    tags:
+    - rag
+    - llm
+    - nlp
+    - sql
+    - vector-db
+    - evaluation
+  - id: b_sa_2
+    text: 'Built an Airflow ETL pipeline scraping 7,500+ products across 7 categories into SQLite, with
+      SELECT-only query validation, 29 pytest unit tests, and CI/CD for automated daily refreshes.
+
+      '
+    tags:
+    - data-engineering
+    - airflow
+    - etl
+    - testing
+    - ci-cd
+    - web-scraping
+    - sql
+- id: prj_mlops
+  name: End-to-End MLOps Pipeline
+  url: https://github.com/perrysolid/End-to-End-MLops-pipeline
+  date: 2026-04
+  tags:
+  - mlops
+  - ci-cd
+  - azure
+  - docker
+  - flask
+  - monitoring
+  - deployment
+  bullets:
+  - id: b_ml_1
+    text: 'Designed an end-to-end MLOps pipeline for a student score prediction model with data ingestion,
+      feature engineering, GridSearchCV, and a Flask + Gunicorn serving layer.
+
+      '
+    tags:
+    - mlops
+    - ml
+    - flask
+    - deployment
+  - id: b_ml_2
+    text: 'Built GitHub Actions CI/CD to deploy the container to Azure App Service (Service Principal
+      auth, Oryx, Kudu), with experiment tracking, model versioning, data-drift monitoring, and live observability
+      via Azure Monitor.
+
+      '
+    tags:
+    - ci-cd
+    - azure
+    - docker
+    - monitoring
+    - mlops
+    - devops
+- id: prj_nhai_datalake
+  name: Offline Facial Recognition & Liveness Detection — NHAI Datalake 3.0
+  date:
+    value: null
+    status: ASK
+  context: National-level hackathon, ~800 teams; 3rd place, Rs. 50,000 cash prize
+  tags:
+  - computer-vision
+  - edge-ai
+  - on-device
+  - face-recognition
+  - liveness
+  - security
+  - optimization
+  bullets:
+  - id: b_nhai_1
+    text: 'Placed 3rd out of ~800 teams nationwide in the NHAI Datalake 3.0 challenge, building an offline
+      Facial Recognition and Liveness Detection module and winning a Rs. 50,000 cash prize.
+
+      '
+    tags:
+    - achievement
+    - computer-vision
+    - competition
+  - id: b_nhai_2
+    text: 'Shipped a fully offline on-device pipeline under a 20 MB total model and package footprint,
+      covering face detection, five-point alignment, facial recognition, and illumination robustness.
+
+      '
+    tags:
+    - edge-ai
+    - on-device
+    - optimization
+    - computer-vision
+    - model-compression
+  - id: b_nhai_3
+    text: 'Implemented multi-factor liveness detection plus security and integrity checks to harden the
+      module against spoofing and replay attacks.
+
+      '
+    tags:
+    - liveness
+    - anti-spoofing
+    - security
+    - computer-vision
+  - id: b_nhai_4
+    text: 'Presented the architecture, offline recognition approach, deployment requirements, and Datalake
+      3.0 integration path to senior officials from NHAI and the Digital India Corporation (DIC) at the
+      final evaluation.
+
+      '
+    tags:
+    - communication
+    - stakeholder-presentation
+    - architecture
+achievements:
+- id: ach_tenzorx
+  title: Winner — TenzorX Hackathon
+  org: Poonawalla Fincorp
+  url: https://github.com/ultramech79-art/PoonaWala
+  year: 2026
+  prize_inr: 400000
+  scale: 20,000+ teams
+  tags:
+  - hackathon
+  - winner
+  - ml
+  - fintech
+  bullets:
+  - id: b_tx_1
+    text: 'Won first place and a cash prize of Rs. 4 Lakh out of 20,000+ teams, building GoldEye — an
+      AI-powered gold-loan pre-qualification system delivering instant, explainable loan estimates from
+      a phone camera.
+
+      '
+    tags:
+    - hackathon
+    - winner
+    - ml
+    - computer-vision
+    - fintech
+- id: ach_nhai
+  title: 3rd Place — NHAI Datalake 3.0 Challenge
+  org: National Highways Authority of India / Digital India Corporation
+  year:
+    value: null
+    status: ASK
+  prize_inr: 50000
+  scale: ~800 teams, national level
+  tags:
+  - hackathon
+  - computer-vision
+  - edge-ai
+  - government
+  see_project: prj_nhai_datalake
+- id: ach_sih
+  title: Smart India Hackathon 2025 — Finalist
+  org: Government of Jharkhand
+  year: 2025
+  scale: Top 1200 teams from over 1.5 Lakh teams
+  tags:
+  - hackathon
+  - finalist
+  - government
+  bullets:
+  - id: b_sih_1
+    text: Finalist among the top 1200 teams nationwide from over 1.5 Lakh teams.
+    tags:
+    - hackathon
+    - finalist
+  - id: b_sih_2
+    text: 'Designed a travel and tourism application for a Jharkhand government initiative, promoting
+      tribal culture and hidden gems using AR-based location discovery, smart itinerary planning, and
+      data-driven route optimization.
+
+      '
+    tags:
+    - mobile
+    - ar
+    - optimization
+    - product
+- id: ach_fingenuity
+  title: Winner — Finance Budgeting Competition (Fingenuity)
+  org: Shri Ram College of Commerce, University of Delhi
+  year: 2025
+  prize_inr: 50000
+  tags:
+  - finance
+  - business
+  - competition
+  - winner
+  bullets:
+  - id: b_fg_1
+    text: 'Won the Finance Budgeting Competition securing a cash prize of Rs. 50,000 along with sponsored
+      goodies.
+
+      '
+    tags:
+    - finance
+    - winner
+  - id: b_fg_2
+    text: 'Cleared three intensive rounds involving detailed cafe financial modeling, cost-revenue forecasting,
+      break-even analysis, location viability, and an EV-focused case study assessing NPV, scalability,
+      and market feasibility in the Indian context.
+
+      '
+    tags:
+    - financial-modeling
+    - analysis
+    - business
+leadership:
+- id: ld_1
+  text: Executive Committee - Saturnalia 50th Edition
+  tags:
+  - leadership
+  - events
+- id: ld_2
+  text: Executive Committee - Thapar Food Festival
+  tags:
+  - leadership
+  - events
+- id: ld_3
+  text: Member - Thapar Nautanki Team
+  tags:
+  - teamwork
+  - communication
+skills:
+  languages:
+    confirmed:
+    - Python
+    - SQL
+    - C
+    - C++
+    - Bash
+  ml_dl:
+    confirmed:
+    - Scikit-learn
+    - XGBoost
+    - LightGBM
+    - GridSearchCV
+    - MLflow
+    - Model Deployment
+    - Experiment Tracking
+    - Model Versioning
+    - Data Drift Monitoring
+    - CNNs
+    - Vision Transformers
+    - ResNet
+    - MobileViT
+    - Transfer Learning
+    - Face Detection
+    - Facial Recognition
+    - Liveness Detection / Anti-Spoofing
+    - On-Device / Edge Inference
+    - Model Compression
+    inferred:
+    - PyTorch
+    - TensorFlow
+    - OpenCV
+    - ONNX Runtime
+    - TensorFlow Lite
+    - Quantization
+    - NumPy-based CV
+  llm_nlp:
+    confirmed:
+    - RAG
+    - Corrective RAG (CRAG)
+    - Text-to-SQL
+    - ChromaDB
+    - sentence-transformers
+    - Cross-Encoder Reranking
+    - Vector Databases
+    - LLM Evaluation (faithfulness
+    - routing accuracy)
+    inferred:
+    - LangChain
+    - LlamaIndex
+    - Prompt Engineering
+    - Hugging Face Transformers
+  data_eng_backend:
+    confirmed:
+    - Apache Airflow
+    - ETL Pipelines
+    - Data Pipelines
+    - PostgreSQL
+    - SQLite
+    - FastAPI
+    - Flask
+    - Gunicorn
+    - Docker
+    - Docker Compose
+    - GitHub Actions
+    - Web Scraping
+    - REST APIs
+    inferred:
+    - Pydantic
+    - Celery
+    - Redis
+  cloud_devops:
+    confirmed:
+    - Azure App Service
+    - Azure Monitor
+    - CI/CD Pipelines
+    - Containerization
+    - Service Principal auth
+    - Oryx
+    - Kudu
+    inferred:
+    - Git
+    - Linux
+    - AWS
+  analysis_viz:
+    confirmed:
+    - Pandas
+    - NumPy
+    - Matplotlib
+    - Excel
+    inferred:
+    - Seaborn
+    - Plotly
+    - Power BI
+  testing:
+    confirmed:
+    - pytest
+    - Unit Testing
+  domain:
+    confirmed:
+    - Medical Imaging
+    - Computer Vision
+    - MLOps
+    - Financial Modeling
+    - Fintech
+job_families:
+- id: fam_ml
+  label: ML / AI Engineer (Intern / Fresher)
+  keywords:
+  - machine learning
+  - ml engineer
+  - ai engineer
+  - deep learning
+  - computer vision
+  - nlp
+  lead_with:
+  - prj_nhai_datalake
+  - pub_new2an
+  - prj_goldeye
+  - prj_saarthi
+- id: fam_ds
+  label: Data Science / Data Analyst
+  keywords:
+  - data science
+  - data scientist
+  - data analyst
+  - analytics
+  - business analyst
+  lead_with:
+  - exp_ds_intern
+  - prj_saarthi
+  - prj_mlops
+  - ach_fingenuity
+- id: fam_mlops
+  label: MLOps / ML Platform
+  keywords:
+  - mlops
+  - ml platform
+  - ml infrastructure
+  - model deployment
+  - ml ops
+  lead_with:
+  - prj_mlops
+  - prj_goldeye
+  - prj_saarthi
+- id: fam_backend
+  label: Backend / SDE
+  keywords:
+  - backend
+  - software engineer
+  - sde
+  - python developer
+  - api
+  - full stack
+  lead_with:
+  - prj_goldeye
+  - prj_saarthi
+  - prj_mlops
+- id: fam_de
+  label: Data Engineering
+  keywords:
+  - data engineer
+  - etl
+  - data pipeline
+  - airflow
+  - warehouse
+  lead_with:
+  - prj_saarthi
+  - prj_mlops
+  - exp_ds_intern
+- id: fam_cv
+  label: Computer Vision / Edge AI
+  keywords:
+  - computer vision
+  - cv engineer
+  - edge ai
+  - on-device
+  - image processing
+  - perception
+  lead_with:
+  - prj_nhai_datalake
+  - pub_new2an
+  - exp_project_intern
+  - prj_goldeye

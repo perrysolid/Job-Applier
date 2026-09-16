@@ -1,0 +1,4 @@
+pypdf==6.19.0
+PyYAML==6.0.3
+rendercv==2.8
+requests==2.34.2

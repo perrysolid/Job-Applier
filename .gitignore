@@ -1,0 +1,14 @@
+.venv/
+data/logs/
+data/resumes/
+*.db
+.env
+secrets.*
+__pycache__/
+*.pyc
+.DS_Store
+
+# Personal data — never commit. Repo is public.
+profile/master.yaml
+profile/answers.yaml
+data/resumes/

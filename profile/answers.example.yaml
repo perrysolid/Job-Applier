@@ -1,0 +1,84 @@
+# Redacted template. Copy to answers.yaml, fill in your own details, and keep it out of git.
+identity:
+  first_name: <your first name>
+  last_name: <your last name>
+  full_name: <your full name>
+  email: <your email>
+  phone_country_code: '+91'
+  phone: <your phone>
+  gender:
+    value: null
+    status: ASK
+  date_of_birth:
+    value: null
+    status: ASK
+  category:
+    value: null
+    status: ASK
+  differently_abled:
+    value: null
+    status: ASK
+screening:
+  years_of_experience: '0'
+  are_you_a_fresher: 'Yes'
+  currently_employed: 'No'
+  notice_period: Immediate / 0 days
+  willing_to_relocate: 'Yes'
+  open_to_remote: 'Yes'
+  require_sponsorship: 'No'
+  authorized_to_work_in_india: 'Yes'
+  highest_qualification: Bachelor of Engineering (pursuing, 2027)
+  graduation_year: '2027'
+  current_cgpa: 9.0 / 10
+  expected_salary:
+    value: null
+    status: ASK
+  expected_stipend:
+    value: null
+    status: ASK
+  earliest_start_date:
+    value: null
+    status: ASK
+  how_did_you_hear: Company careers page
+  criminal_record: 'No'
+  previously_applied_or_employed_here: 'No'
+essays:
+  why_this_role:
+    max_words: 120
+    strategy: 'Generate per-job. Open with the single most relevant artifact from master.yaml `lead_with`
+      for the matched job family, name one concrete detail from the JD, close with what Parth wants to
+      learn. No adjectives about himself, no "passionate".
+
+      '
+  tell_us_about_yourself:
+    max_words: 150
+    approved_base: 'I''m a final-year Computer Engineering student at Thapar Institute (CGPA 9.0) working
+      at the intersection of applied ML and shipping it. I lead-authored a paper accepted at NEW2AN 2025
+      on a hybrid ResNet-18/MobileViT architecture for brain tumor classification, and I''ve built systems
+      end to end: a grounded RAG + Text-to-SQL assistant, an MLOps pipeline deployed to Azure with drift
+      monitoring, and an offline face recognition and liveness module that ran fully on-device under 20
+      MB. Competitively, I won the TenzorX hackathon out of 20,000+ teams and placed 3rd in the NHAI Datalake
+      3.0 challenge.
+
+      '
+  greatest_achievement:
+    approved_base: 'Winning TenzorX out of 20,000+ teams with GoldEye, a gold-loan pre-qualification system
+      that estimates purity, weight and loan value from phone photos and a tap-sound test across 12 checks,
+      with an explanation and an automatic approve/refer/retake/reject decision for every result.
+
+      '
+  cover_letter:
+    strategy: 'Three short paragraphs. Para 1: the role and the one project that maps to it. Para 2: two
+      specific, quantified results from master.yaml. Para 3: availability (2027 graduate, immediate for
+      internships) and a one-line close. Never exceed 220 words. Never claim experience with a tool not
+      in skills.confirmed.
+
+      '
+always_defer:
+- anything asking for salary or stipend expectations
+- anything about visa, relocation cost, or bond/service agreements
+- anything referencing a specific technology absent from skills.confirmed
+- any question where a wrong answer disqualifies (eligibility, graduation date)
+- free-text over 250 words
+- any question mentioning a background check, reference, or prior employer
+confidence_threshold: 0.85
