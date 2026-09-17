@@ -28,9 +28,7 @@ location:
     city: Kanpur
     state: Uttar Pradesh
     country: India
-    pincode:
-      value: null
-      status: ASK
+    pincode: <your pincode>
   preferences:
     willing_to_relocate: true
     preferred_cities:
@@ -91,9 +89,7 @@ education:
     status: ASK
   start: 2020
   end: 2022
-  percentage:
-    value: null
-    status: ASK
+  percentage: 94.2
   on_resume: false
 - id: edu_x
   institution: Methodist High School
@@ -104,18 +100,16 @@ education:
     status: ASK
   start: 2008
   end: 2020
-  percentage:
-    value: null
-    status: ASK
+  percentage: 94.33
   on_resume: false
 education_gap:
   period: 2022-2023
-  explanation:
-    value: null
-    status: ASK
-  note: 'One year between Class XII (2022) and B.E. start (2023). Application forms with strict year-by-year
-    education timelines will flag this. Supply a one-line explanation (e.g. JEE preparation / drop year)
-    so the answer bank can respond consistently instead of leaving it blank.
+  explanation: Health reasons
+  form_answer: Personal reasons
+  note: 'One year between Class XII (2022) and B.E. start (2023). Forms with strict year-by-year education
+    timelines will flag it. `form_answer` is what gets submitted: health details are sensitive, you are
+    under no obligation to disclose them to an employer, and "personal reasons" is both truthful and complete
+    for this purpose. Override per-application if you ever want to.
 
     '
 experience:
@@ -342,6 +336,7 @@ projects:
     value: null
     status: ASK
   context: National-level hackathon, ~800 teams; 3rd place, Rs. 50,000 cash prize
+  on_resume: false
   tags:
   - computer-vision
   - edge-ai
@@ -425,6 +420,7 @@ achievements:
     status: ASK
   prize_inr: 50000
   scale: ~800 teams, national level
+  on_resume: false
   tags:
   - hackathon
   - computer-vision
@@ -615,6 +611,7 @@ job_families:
   - machine learning
   - ml engineer
   - ai engineer
+  - artificial intelligence
   - deep learning
   - computer vision
   - nlp

@@ -13,3 +13,5 @@ profile/master.yaml
 profile/answers.yaml
 data/resumes/
 .githooks/pii-patterns
+data/cache/
+data/jobs.db

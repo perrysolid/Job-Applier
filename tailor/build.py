@@ -83,7 +83,7 @@ def build_publications(m):
 
 
 def build_projects(m, order):
-    items = {p["id"]: p for p in m["projects"]}
+    items = {p["id"]: p for p in m["projects"] if p.get("on_resume", True)}
     ids = [i for i in order if i in items] + [i for i in items if i not in order]
     out = []
     for i in ids:
@@ -104,7 +104,7 @@ def build_projects(m, order):
 def build_achievements(m, max_bullets=99):
     out = []
     for a in m["achievements"]:
-        if a.get("see_project"):          # already rendered under Projects
+        if a.get("see_project") or not a.get("on_resume", True):
             continue
         for b in a.get("bullets", [])[:max_bullets]:
             out.append({"bullet": " ".join(b["text"].split())})

@@ -1,0 +1,60 @@
+# ============================================================================
+# Pipeline configuration.
+# ============================================================================
+
+resume:
+  # static   -> always upload `primary`, the resume Parth already trusts
+  # tailored -> upload the job-family variant from tailor/build.py
+  mode: static
+  primary: data/resumes/Parth_Mishra_primary.pdf
+  tailored_dir: data/resumes
+
+search:
+  # Role keywords fanned out across every discovery source.
+  keywords:
+    - machine learning intern
+    - data science intern
+    - ai intern
+    - software engineer intern
+    - backend developer intern
+    - data analyst intern
+    - computer vision intern
+    - mlops intern
+    - graduate engineer trainee
+    - associate software engineer
+
+  locations: [Bangalore, Hyderabad, Pune, Gurgaon, Noida, Delhi, Mumbai, Chennai, Remote, India]
+
+  # Hard gates, applied before anything reaches the LLM.
+  filters:
+    max_experience_years: 1          # fresher roles only
+    exclude_title_terms:
+      - senior
+      - sr.
+      - lead
+      - principal
+      - staff
+      - manager
+      - architect
+      - "3+ years"
+      - "5+ years"
+    exclude_companies: []            # consultancies / spammers you don't want
+    posted_within_days: 21
+
+limits:
+  # Per-platform daily caps. Deliberately below each platform's own throttle.
+  internshala: 30
+  naukri: 50
+  linkedin: 25                       # platform hard cap is ~50; soft throttle ~30
+  ats: 25                            # greenhouse / lever / ashby
+  per_company_cooldown_days: 30      # never re-apply to the same company inside this
+
+pacing:
+  min_seconds_between_applications: 40
+  max_seconds_between_applications: 180
+  session_minutes: [25, 50]          # work this long, then take a break
+  break_minutes: [10, 30]
+
+scoring:
+  min_score_to_apply: 65             # 0-100 match against master.yaml
+  min_score_to_shortlist: 45         # below apply threshold, still worth showing
