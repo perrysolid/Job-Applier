@@ -55,15 +55,11 @@ eligibility:
   years_of_experience: 0
   internship_months_completed: 8
   notice_period_days: 0
-  available_from:
-    value: null
-    status: ASK
-  expected_stipend_monthly_inr:
-    value: null
-    status: ASK
-  expected_ctc_lpa:
-    value: null
-    status: ASK
+  available_from: Immediate
+  expected_stipend_monthly_inr: negotiable
+  expected_ctc_lpa: negotiable
+  category: <your category>
+  date_of_birth: <your date of birth>
   current_ctc_lpa: 0
 education:
 - id: edu_thapar

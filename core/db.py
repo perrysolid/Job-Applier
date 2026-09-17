@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS jobs (
     score         INTEGER,
     family        TEXT,
     status        TEXT NOT NULL DEFAULT 'new',
+    confidence    TEXT DEFAULT 'full',
     reason        TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_jobs_status  ON jobs(status);

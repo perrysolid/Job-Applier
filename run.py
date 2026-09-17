@@ -12,6 +12,7 @@ ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 from core import db, filter as filt, score as scorer
 from sources.ats import fetch
+from sources import internshala
 
 REGISTRY = ROOT / "sources" / "boards.json"
 
@@ -54,9 +55,10 @@ def digest(con, cfg, limit=40):
     print(f"\n{'='*78}\n  TOP MATCHES  ({len(rows)} shown, apply threshold {apply_at})\n{'='*78}")
     for r in rows:
         mark = "APPLY " if r["score"] >= apply_at else "look  "
+        conf = "~" if (r["confidence"] or "full") == "partial" else " "
         loc = (r["location"] or "-")[:26]
-        print(f"\n[{mark}{r['score']:3d}]  {r['title'][:58]}")
-        print(f"          {r['company'][:28]:28s} {loc:26s} {r['family']}")
+        print(f"\n[{mark}{r['score']:3d}{conf}] {r['title'][:58]}")
+        print(f"          {r['company'][:28]:28s} {loc:26s} {r['family']}  [{r['source']}]")
         print(f"          {r['url']}")
 
 
@@ -71,10 +73,17 @@ def main():
 
     if not a.digest_only:
         boards = json.loads(REGISTRY.read_text())
-        print(f"harvesting {len(boards)} boards...")
+        print(f"harvesting {len(boards)} ATS boards...")
         raw, dead = harvest(boards)
-        print(f"  {len(raw):,} postings fetched"
+        print(f"  {len(raw):,} ATS postings"
               + (f"  ({len(dead)} boards dead/empty)" if dead else ""))
+
+        if cfg["search"].get("internshala", {}).get("enabled", True):
+            pages = cfg["search"].get("internshala", {}).get("pages", 2)
+            print(f"harvesting internshala ({len(internshala.CATEGORIES)} categories)...")
+            ish = internshala.fetch_all(pages=pages)
+            print(f"  {len(ish):,} internshala postings")
+            raw += ish
 
         kept, dropped = filt.apply_all(raw, cfg)
         print(f"  {len(kept):,} pass hard filters")
@@ -84,8 +93,8 @@ def main():
         scored = scorer.score_all(kept, master)
         new = db.upsert_jobs(con, scored)
         for j in scored:
-            con.execute("UPDATE jobs SET score=?, family=? WHERE fingerprint=?",
-                        (j["score"], j["family"],
+            con.execute("UPDATE jobs SET score=?, family=?, confidence=? WHERE fingerprint=?",
+                        (j["score"], j["family"], j.get("confidence", "full"),
                          db.fingerprint(j["company"], j["title"], j.get("location", ""))))
         con.commit()
         dupes = len(scored) - new

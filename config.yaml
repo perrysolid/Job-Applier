@@ -10,6 +10,10 @@ resume:
   tailored_dir: data/resumes
 
 search:
+  internshala:
+    enabled: true
+    pages: 2            # ~49 postings per page per category
+
   # Role keywords fanned out across every discovery source.
   keywords:
     - machine learning intern
@@ -23,7 +27,195 @@ search:
     - graduate engineer trainee
     - associate software engineer
 
-  locations: [Bangalore, Hyderabad, Pune, Gurgaon, Noida, Delhi, Mumbai, Chennai, Remote, India]
+  # "apply everywhere" = anywhere in India, plus anything remote. Parth cannot
+  # take a US or EU role without sponsorship, so those are noise, not options.
+  #
+  # This matches India POSITIVELY. The first attempt excluded a list of foreign
+  # cities instead, and "Mountain View, California" and "US-WA-Bellevue" walked
+  # straight through it — an exclude list of place names is exactly as brittle
+  # as the allowlist it replaced.
+  apply_everywhere: true
+  # Sources that only ever list Indian roles. Running a city allowlist over
+  # these drops legitimate postings in smaller cities (Nagercoil, Erode, Hubli)
+  # for no benefit — every posting on them is already in India.
+  india_only_sources: [internshala, naukri]
+  # Checked BEFORE india_markers and wins over them. Needed because postings
+  # lead with a work-mode word: "Hybrid - San Francisco, CA" and "Remote - US"
+  # both matched the India list on "hybrid"/"remote" and sailed through.
+  foreign_markers:
+    # Bare codes are matched on word boundaries, not as substrings, so "us"
+    # does not fire on "Belarus" and "ca" does not fire on "Calcutta".
+    - us
+    - usa
+    - uk
+    - eu
+    - emea
+    - apac
+    - latam
+    - united states
+    - "u.s."
+    - ", ca"
+    - ", ny"
+    - ", wa"
+    - ", tx"
+    - ", ma"
+    - ", il"
+    - ", co"
+    - ", ga"
+    - "us-"
+    - california
+    - new york
+    - san francisco
+    - seattle
+    - austin
+    - boston
+    - chicago
+    - denver
+    - atlanta
+    - mountain view
+    - menlo park
+    - palo alto
+    - bellevue
+    - canada
+    - toronto
+    - vancouver
+    - united kingdom
+    - london
+    - ireland
+    - dublin
+    - germany
+    - berlin
+    - munich
+    - netherlands
+    - amsterdam
+    - france
+    - paris
+    - spain
+    - madrid
+    - barcelona
+    - poland
+    - warsaw
+    - krakow
+    - portugal
+    - lisbon
+    - sweden
+    - stockholm
+    - switzerland
+    - zurich
+    - australia
+    - sydney
+    - melbourne
+    - singapore
+    - japan
+    - tokyo
+    - korea
+    - china
+    - shanghai
+    - beijing
+    - israel
+    - tel aviv
+    - dubai
+    - uae
+    - brazil
+    - mexico
+    - argentina
+    - colombia
+    - philippines
+    - manila
+    - vietnam
+    - indonesia
+    - jakarta
+  india_markers:
+    - india
+    - remote
+    - work from home
+    - wfh
+    # states / UTs
+    - andhra
+    - assam
+    - bihar
+    - chhattisgarh
+    - goa
+    - gujarat
+    - haryana
+    - himachal
+    - jharkhand
+    - karnataka
+    - kerala
+    - madhya pradesh
+    - maharashtra
+    - odisha
+    - orissa
+    - punjab
+    - rajasthan
+    - tamil nadu
+    - telangana
+    - uttar pradesh
+    - uttarakhand
+    - west bengal
+    - delhi
+    # cities
+    - bangalore
+    - bengaluru
+    - hyderabad
+    - pune
+    - mumbai
+    - bombay
+    - chennai
+    - madras
+    - kolkata
+    - calcutta
+    - gurgaon
+    - gurugram
+    - noida
+    - ghaziabad
+    - faridabad
+    - ahmedabad
+    - surat
+    - jaipur
+    - lucknow
+    - kanpur
+    - nagpur
+    - indore
+    - bhopal
+    - patna
+    - vadodara
+    - coimbatore
+    - kochi
+    - cochin
+    - trivandrum
+    - thiruvananthapuram
+    - mysore
+    - mysuru
+    - chandigarh
+    - mohali
+    - dehradun
+    - bhubaneswar
+    - visakhapatnam
+    - vizag
+    - nashik
+    - rajkot
+    - ludhiana
+    - amritsar
+    - agra
+    - varanasi
+    - guwahati
+    - raipur
+    - ranchi
+    - jodhpur
+    - thane
+    - navi mumbai
+    - pimpri
+    - gandhinagar
+    - manesar
+    - hosur
+    - warangal
+    - vijayawada
+    - madurai
+    - salem
+    - tiruchirappalli
+    - jalandhar
+    - patiala
 
   # Hard gates, applied before anything reaches the LLM.
   filters:
@@ -38,6 +230,11 @@ search:
       - architect
       - "3+ years"
       - "5+ years"
+      - phd
+      - ph.d
+      - doctoral
+      - postdoc
+      - mba
     exclude_companies: []            # consultancies / spammers you don't want
     posted_within_days: 21
 

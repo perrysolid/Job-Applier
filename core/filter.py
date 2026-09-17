@@ -59,10 +59,25 @@ def passes(job, cfg):
         except ValueError:
             pass
 
-    locs = [l.lower() for l in cfg["search"]["locations"]]
     jl = (job.get("location") or "").lower()
-    if jl and not any(l in jl for l in locs) and "remote" not in jl:
-        return False, f"location '{job.get('location')}'"
+    if jl and job.get("source") not in (cfg["search"].get("india_only_sources") or []):
+        if cfg["search"].get("apply_everywhere"):
+            # Foreign veto first: a posting that says "Hybrid - San Francisco"
+            # matches the India list on "hybrid" if you only check for India.
+            for bad in cfg["search"].get("foreign_markers") or []:
+                b = bad.strip().lower()
+                # Alphanumeric markers match on word boundaries: a bare "us"
+                # as a substring fires on "Belarus", "ca" on "Calcutta".
+                hit = (re.search(rf"\b{re.escape(b)}\b", jl) if b.replace(" ", "").isalnum()
+                       else b in jl)
+                if hit:
+                    return False, f"outside India '{job.get('location')}'"
+            if not any(mk in jl for mk in cfg["search"].get("india_markers") or []):
+                return False, f"outside India '{job.get('location')}'"
+        else:
+            locs = [l.lower() for l in cfg["search"]["locations"]]
+            if not any(l in jl for l in locs) and "remote" not in jl:
+                return False, f"location '{job.get('location')}'"
 
     return True, None
 

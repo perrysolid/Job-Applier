@@ -9,15 +9,10 @@ identity:
   gender:
     value: null
     status: ASK
-  date_of_birth:
-    value: null
-    status: ASK
-  category:
-    value: null
-    status: ASK
-  differently_abled:
-    value: null
-    status: ASK
+  date_of_birth: <your date of birth>
+  date_of_birth_display: 02/03/2004
+  category: <your category>
+  differently_abled: <your differently abled>
 screening:
   years_of_experience: '0'
   are_you_a_fresher: 'Yes'
@@ -30,15 +25,15 @@ screening:
   highest_qualification: Bachelor of Engineering (pursuing, 2027)
   graduation_year: '2027'
   current_cgpa: 9.0 / 10
-  expected_salary:
+  expected_salary: Negotiable / as per company standards
+  expected_salary_fallback_lpa:
     value: null
     status: ASK
-  expected_stipend:
+  expected_stipend: Negotiable / as per company standards
+  expected_stipend_fallback_monthly:
     value: null
     status: ASK
-  earliest_start_date:
-    value: null
-    status: ASK
+  earliest_start_date: Immediate
   how_did_you_hear: Company careers page
   criminal_record: 'No'
   previously_applied_or_employed_here: 'No'

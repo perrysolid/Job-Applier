@@ -23,6 +23,15 @@ from collections import Counter
 
 SKILL_TARGET = 10   # matching this many confirmed skills earns full marks
 
+# Listing cards on some sources carry no job description -- Internshala's
+# average 41 characters against Greenhouse's 3,941. Skill overlap cannot score
+# what is not there, so those postings were capped ~20 points below ATS ones
+# and the highest-volume source sorted to the bottom of every digest. Below
+# this length the skill component is redistributed across what IS measurable,
+# and the row is marked partial so the number is not read as equivalent.
+THIN_DESC = 300
+PARTIAL_CEILING = 85    # not 100: a title-only match genuinely tells you less
+
 WORD = re.compile(r"[a-z0-9+#.]+")
 FRESHER = re.compile(r"\b(intern|internship|trainee|graduate|campus|fresher|entry[- ]level|new grad|university|apprentice)\b", re.I)
 BONUS = re.compile(r"\b(research|publication|paper|computer vision|nlp|llm|rag|mlops|deep learning|machine learning|data pipeline|airflow|pytorch|fastapi)\b", re.I)
@@ -70,8 +79,8 @@ def pick_family(job, master):
     blob = expand(f"{job.get('title','')} {job.get('description','')}")
     best, best_hits = None, 0
     for fam in master["job_families"]:
-        title = expand(job.get("title", ""))
-        hits = sum(3 if k in title else 1
+        t = expand(job.get("title", ""))
+        hits = sum(3 if k in t else 1
                    for k in fam["keywords"] if k in blob)
         if hits > best_hits:
             best, best_hits = fam["id"], hits
@@ -82,7 +91,10 @@ def score(job, master, idf, skills=None):
     skills = skills if skills is not None else profile_skills(master)
     title = job.get("title", "")
     blob = f"{title}\n{job.get('description','')}"
-    bl = blob.lower()
+    # Expanded, not raw: pick_family() expands "AI"/"ML"/"SDE" but this path
+    # read the raw text, so family keywords never matched on the abbreviated
+    # titles that dominate Internshala. Only the fresher signal was firing.
+    bl = expand(blob)
 
     # 1. weighted skill overlap, normalised against a realistic match count
     matched, weight = [], 0.0
@@ -105,8 +117,17 @@ def score(job, master, idf, skills=None):
     # 4. domains Parth has shipped in
     bonus_pts = 10 * min(len(set(m.group(0).lower() for m in BONUS.finditer(bl))) / 4, 1.0)
 
-    total_score = round(skill_pts + fam_pts + fresh_pts + bonus_pts)
-    return min(total_score, 100), fam_id, sorted(matched, key=len, reverse=True)[:8]
+    thin = len(job.get("description") or "") < THIN_DESC
+    if thin:
+        measurable = 20 + 30 + 10           # family + fresher + bonus
+        raw = fam_pts + fresh_pts + bonus_pts
+        total_score = round(raw * (PARTIAL_CEILING / measurable))
+    else:
+        total_score = round(skill_pts + fam_pts + fresh_pts + bonus_pts)
+
+    return (min(total_score, 100), fam_id,
+            sorted(matched, key=len, reverse=True)[:8],
+            "partial" if thin else "full")
 
 
 def score_all(jobs, master):
@@ -114,6 +135,7 @@ def score_all(jobs, master):
     skills = profile_skills(master)
     out = []
     for j in jobs:
-        s, fam, matched = score(j, master, idf, skills)
-        out.append({**j, "score": s, "family": fam, "matched_skills": matched})
+        s, fam, matched, conf = score(j, master, idf, skills)
+        out.append({**j, "score": s, "family": fam,
+                    "matched_skills": matched, "confidence": conf})
     return sorted(out, key=lambda j: -j["score"])
